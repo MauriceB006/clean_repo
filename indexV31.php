@@ -55,7 +55,7 @@ require_once 'check_auth.php';
 ?>
 
 <!-- In your header where the login button was -->
-<div class="header-user">
+<div class="header-user" style="color: black; font-weight: bold;">
   <?php if (isset($_SESSION['user_id'])): ?>
     <div class="user-profile">
       <span class="user-greeting">
@@ -341,7 +341,7 @@ require_once 'check_auth.php';
       </div>
     </section>
     
-
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1xj7EirT1nTXvtXv52VAkjy3f8OpAZkU" width="100%" height="600"></iframe>
   </div>
 </section>
 

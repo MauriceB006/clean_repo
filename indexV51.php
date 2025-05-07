@@ -25,8 +25,8 @@ require_once 'check_auth.php';
   <link
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rubik:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-
   <!-- preload images -->
+  
 </head>
 
 <body id="top">
