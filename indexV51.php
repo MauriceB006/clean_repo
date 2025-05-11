@@ -37,7 +37,7 @@ require_once 'check_auth.php';
   
       <h1>
         <a href="indexV3.html">
-          <img src="images_v5/ACTC-LOGO.png" class="logo" alt="ACTC Public Transport">
+          <img src="images_v5/ACTC LOGO -02 SMALl.png" class="logo" alt="ACTC Public Transport">
         </a>
       </h1>
   
@@ -723,25 +723,19 @@ require_once 'check_auth.php';
 
           <ul class="social-list">
             <li>
-              <a href="#" class="social-link">
+              <a href="https://www.facebook.com/people/Ahdab-Commuting-Trading-Company-Public-Transport/61562826866056/" class="social-link">
                 <ion-icon name="logo-facebook"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="social-link">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="social-link">
+              <a href="https://www.instagram.com/actcpt.lb/?hl=en" class="social-link">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
 
             <li>
-              <a href="#" class="social-link">
+              <a href="https://www.youtube.com/watch?v=CBHuCte5bdg" class="social-link">
                 <ion-icon name="logo-youtube"></ion-icon>
               </a>
             </li>
