@@ -66,7 +66,7 @@ require_once 'check_auth.php';
         <!-- Navigation links -->
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="#home" class="navbar-link" data-nav-link>
+            <a href="searchplanner.html" class="navbar-link" data-nav-link>
               <span>Plan</span>
             </a>
           </li>
@@ -81,7 +81,7 @@ require_once 'check_auth.php';
             </a>
           </li>
           <li class="navbar-item">
-            <a href="#contact" class="navbar-link" data-nav-link>
+            <a href="contactV3.html" class="navbar-link" data-nav-link>
               <span>Contact</span>
             </a>
           </li>
@@ -759,7 +759,7 @@ require_once 'check_auth.php';
             <a href="#" class="footer-link">FAQ</a>
           </li>
           <li>
-            <a href="#" class="footer-link">Contact Us</a>
+            <a href="contactV3.html" class="footer-link">Contact Us</a>
           </li>
         </ul>
 
