@@ -1,125 +1,4 @@
-<!--FIRST VERSION------------------------------------------------- SCROLL LAL TENE
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #121212;
-      color: #ffffff;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: rgba(0, 0, 0, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
-      text-align: center;
-      color: #4caf50;
-    }
-
-    .contact-info {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 5px;
-      font-size: 14px;
-      background: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    input:hover, textarea:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    input:focus, textarea:focus {
-      background: rgba(255, 255, 255, 0.3);
-      box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.7);
-      outline: none;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 12px;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-      transform: scale(1.05);
-    }
-
-    .btn:active {
-      transform: scale(1);
-    }
-  </style>
-</head>
-<body style="background-image: url('./assets/images/inside2.jpg'); background-repeat: no-repeat;; background-size: cover; background-position: center; padding: 40px;">
-  <div class="container">
-    <h1>Contact Us</h1>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:info@actc.com" style="color: #4caf50; text-decoration: none;">info@actc.com</a></p>
-      <p>Phone: <a href="tel:+96171200908" style="color: #4caf50; text-decoration: none;">+961 71 200 908</a></p>
-    </div>
-    <form action="your-server-endpoint" method="post">
-      <div class="form-group">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </div>
-</body>
-</html>-->
-<!-- SECOND VERSION         -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,16 +14,20 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 40px;
-      background: linear-gradient(135deg, var(--green-blue-crayola), var(--prussian-blue), var(--indigo-dye), var(--dark-orange));
-      color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, var(--green-blue-crayola), var(--prussian-blue), var(--indigo-dye), var(--dark-orange));
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
 
     .container {
       max-width: 800px;
@@ -234,6 +117,44 @@
       transform: scale(1);
     }
 
+    
+    .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .back-button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -256,6 +177,19 @@
   </style>
 </head>
 <body>
+
+  <header class="header">
+    <div class="header-content">
+        <a href="indexV51.php" class="back-button">
+            <i class="fas fa-chevron-left"></i> Back
+        </a>
+        <h1>
+            <img src="../images_v5/ACTC LOGO -02 SMALL.png" class="logo" alt="ACTC Public Transport" style="height: 50px;">
+        </h1>
+        <div style="width: 80px;"></div> <!-- Spacer for balance -->
+    </div>
+</header>
+<div class="main-wrapper">
   <div class="container">
     <h1>Contact Us</h1>
     <div class="contact-info">
@@ -278,6 +212,7 @@
       <button type="submit" class="btn">Send Message</button>
     </form>
   </div>
+</div>
 </body>
 </html>
 
