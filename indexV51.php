@@ -1,5 +1,144 @@
+<?php
+// (Optional: You can add PHP cookie logic here if needed)
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .cookie-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .cookie-popup-box {
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: 10px;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .cookie-popup-box p {
+            margin: 0 0 15px;
+            font-size: 16px;
+            color: #333;
+        }
+        .cookie-popup-box a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        .cookie-popup-box button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .cookie-popup-box button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div id="cookie-popup" class="cookie-popup-overlay">
+    <div class="cookie-popup-box">
+        <p>We use cookies to ensure you get the best experience on our website. <a href="privacy-policy.html" target="_blank">Learn more</a></p>
+        <button id="accept-cookies">Accept</button>
+    </div>
+</div>
+
+<script>
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + d.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+// Wait for DOM to fully load
+document.addEventListener("DOMContentLoaded", function() {
+    if (!getCookie("cookiesAccepted")) {
+        document.getElementById("cookie-popup").style.display = "flex";
+    }
+
+    document.getElementById("accept-cookies").addEventListener("click", function() {
+        setCookie("cookiesAccepted", "yes", 365);
+        document.getElementById("cookie-popup").style.display = "none";
+    });
+});
+</script>
+
+</body>
+</html>
 <?php 
 require_once 'check_auth.php';
+
+// Handle cookie consent
+$showCookieConsent = true;
+if (isset($_COOKIE['cookie_consent'])) {
+    $showCookieConsent = false;
+}
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cookie_action'])) {
+    $cookieConsent = false;
+    $preferenceCookies = false;
+    $analyticsCookies = false;
+    
+    if ($_POST['cookie_action'] === 'accept_all') {
+        $cookieConsent = true;
+        $preferenceCookies = true;
+        $analyticsCookies = true;
+    } elseif ($_POST['cookie_action'] === 'save_settings') {
+        $cookieConsent = true;
+        $preferenceCookies = isset($_POST['preference_cookies']);
+        $analyticsCookies = isset($_POST['analytics_cookies']);
+    } elseif ($_POST['cookie_action'] === 'reject_all') {
+        $cookieConsent = true;
+        $preferenceCookies = false;
+        $analyticsCookies = false;
+    }
+    
+    // Set cookies for 1 year
+    setcookie('cookie_consent', $cookieConsent ? 'true' : 'false', time() + 365*24*60*60, '/');
+    setcookie('cookie_preference', $preferenceCookies ? 'true' : 'false', time() + 365*24*60*60, '/');
+    setcookie('cookie_analytics', $analyticsCookies ? 'true' : 'false', time() + 365*24*60*60, '/');
+    
+    // Redirect to avoid form resubmission
+    header('Location: '.$_SERVER['PHP_SELF']);
+    exit();
+}
+
+// Track route usage if analytics cookies are enabled
+if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 'true') {
+    $route = $_GET['route_used'];
+    $favoriteRoutes = json_decode($_COOKIE['favorite_routes'] ?? '{}', true);
+    $favoriteRoutes[$route] = ($favoriteRoutes[$route] ?? 0) + 1;
+    setcookie('favorite_routes', json_encode($favoriteRoutes), time() + 365*24*60*60, '/');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +176,7 @@ require_once 'check_auth.php';
   
       <h1>
         <a href="indexV3.html">
-          <img src="images_v5/ACTC LOGO -02 SMALl.png" class="logo" alt="ACTC Public Transport">
+          <img src="images_v5\ACTC LOGO -02 SMALl.png" class="logo" alt="ACTC Public Transport">
         </a>
       </h1>
   
@@ -560,10 +699,6 @@ require_once 'check_auth.php';
           </ul>
         </div>
       </section>
-
-      <!-- MAP SECTION -->
-     
-
       <!-- PROJECT SECTION -->
       <section class="section project" aria-label="project">
         <div class="container">
@@ -794,10 +929,77 @@ require_once 'check_auth.php';
 
   <!-- custom js link -->
   <script src="scriptV3.js" defer></script>
+<script>
+// Function to set cookie
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    expires = "; expires=" + d.toUTCString();
+  }
+  document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+// Function to get cookie
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for(let i=0; i < ca.length; i++) {
+    let c = ca[i];
+    while(c.charAt(0)==' ') c = c.substring(1,c.length);
+    if(c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  }
+  return null;
+}
+
+// Show popup if cookie not set
+window.onload = function() {
+  if (!getCookie("cookiesAccepted")) {
+    document.getElementById("cookie-popup").style.display = "flex";
+  }
+
+  document.getElementById("accept-cookies").onclick = function() {
+    setCookie("cookiesAccepted", "yes", 365);
+    document.getElementById("cookie-popup").style.display = "none";
+  };
+};
+</script>
 
   <!-- ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- Cookie Consent Popup -->
 
+<script>
+// Show cookie popup after 3 seconds if consent not given
+document.addEventListener('DOMContentLoaded', function() {
+    <?php if ($showCookieConsent): ?>
+        setTimeout(function() {
+            document.getElementById('cookie-popup').style.display = 'block';
+        }, 3000);
+    <?php endif; ?>
+    
+    // Track route usage - modify your existing startJourney function
+    function startJourney() {
+        const routeSelect = document.getElementById('route-select');
+        const selectedRoute = routeSelect.value;
+        
+        if (selectedRoute) {
+            // Track route usage if analytics cookies are enabled
+            <?php if (($_COOKIE['cookie_analytics'] ?? 'false') === 'true'): ?>
+                // Refresh page with route tracking parameter
+                window.location.href = '<?php echo $_SERVER['PHP_SELF']; ?>?route_used=' + encodeURIComponent(selectedRoute);
+            <?php else: ?>
+                // Continue with normal function
+                // ... your existing startJourney code ...
+            <?php endif; ?>
+        }
+    }
+    
+    // Make startJourney available globally
+    window.startJourney = startJourney;
+});
+</script>
 </body>
 </html>
