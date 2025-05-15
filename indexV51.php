@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 </html>
 <?php 
-require_once 'check_auth.php';
+require_once 'authentication\check_auth.php';
 
 // Handle cookie consent
 $showCookieConsent = true;
@@ -153,10 +153,10 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   
   <!-- favicon -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="assets\images_v5\ACTC LOGO -02 SMALL.png" type="image/svg+xml">
 
   <!-- custom css link -->
-  <link rel="stylesheet" href="styleV4.css">
+  <link rel="stylesheet" href="assets\css\styleV4.css">
 
   <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -175,8 +175,8 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
     <div class="container">
   
       <h1>
-        <a href="indexV3.html">
-          <img src="images_v5\ACTC LOGO -02 SMALl.png" class="logo" alt="ACTC Public Transport">
+        <a href="indexV51.html">
+          <img src="assets\images_v5\ACTC LOGO -02 SMALL.png" class="logo" alt="ACTC Public Transport">
         </a>
       </h1>
   
@@ -188,11 +188,11 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
               Hello, <?php echo htmlspecialchars($_SESSION['user_name']); ?> (ID: <?php echo $_SESSION['user_id']; ?>)
             </span>
             <div class="user-dropdown">
-              <a href="logout.php">Logout</a>
+              <a href="authentication\logout.php">Logout</a>
             </div>
           </div>
         <?php else: ?>
-          <a href="sign_in.php" class="login-button">
+          <a href="authentication\sign_in.php" class="login-button">
             <span class="login-icon">
               <ion-icon name="person-circle-outline"></ion-icon>
             </span>
@@ -205,7 +205,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
         <!-- Navigation links -->
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="searchplanner.html" class="navbar-link" data-nav-link>
+            <a href="pages\searchplanner.html" class="navbar-link" data-nav-link>
               <span>Plan</span>
             </a>
           </li>
@@ -220,12 +220,12 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             </a>
           </li>
           <li class="navbar-item">
-            <a href="contactV3.html" class="navbar-link" data-nav-link>
+            <a href="pages\contactV3.html" class="navbar-link" data-nav-link>
               <span>Contact</span>
             </a>
           </li>
           <li class="navbar-item">
-            <a href="career.html" class="navbar-link" data-nav-link>
+            <a href="pages\career.html" class="navbar-link" data-nav-link>
               <span>Career</span>
             </a>
           </li>
@@ -245,7 +245,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
     <article>
       <!-- HERO SECTION -->
       <section class="section hero" aria-label="home" id="home"
-        style="background-image: url('images_v5/background.jpg')">
+        style="background-image: url('assets/images_v5/2 IMG_7419.jpg')">
         <div class="container">
           <div class="hero-content">
             <h2 class="h1 hero-title">
@@ -256,12 +256,12 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
               <strong>Yalla, hop on The Public Transport Buses! From souk adventures to Corniche cruises-w ba3dna faster than your cousin's dabke moves!""</strong>
             </p>
           
-            <a href="searchplanner.html" class="btn-outline">Discover More</a>
+            <a href="pages\searchplanner.html" class="btn-outline">Discover More</a>
 
-            <img src="images_v5\hero-shape.png" width="116" height="116" loading="lazy"
+            <img src="assets\images_v5\hero-shape.png" width="116" height="116" loading="lazy"
               class="hero-shape shape-1">
 
-            <img src="images_v5\hero-shape.png" width="116" height="116" loading="lazy"
+            <img src="assets\images_v5\hero-shape.png" width="116" height="116" loading="lazy"
               class="hero-shape shape-2">
           </div>
         </div>
@@ -516,7 +516,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                   
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="images_v5/logo-cartlow.svg"  alt="cartlow" class="banner-image">
+                        <img src="assets\images_v5\logo-cartlow.svg"  alt="cartlow" class="banner-image">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XX YYY ZZZ OOO</p>
@@ -527,7 +527,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
 
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="images_v5/Lebanese_University_logo.png" alt="Premium Deals" class="banner-image" width="200">
+                        <img src="assets\images_v5\Lebanese_University_logo.png" alt="Premium Deals" class="banner-image" width="200">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XXX YYY ZZZ OOO</p>
@@ -538,7 +538,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
 
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="images_v5/wish_logo.svg" alt="Premium Deals" class="banner-image">
+                        <img src="assets\images_v5\wish_logo.svg" alt="Premium Deals" class="banner-image">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XXX YYY ZZZ OOO</p>
@@ -549,7 +549,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
 
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="images_v5/new_omt_logo.svg" alt="Premium Deals" class="banner-image">
+                        <img src="assets\images_v5\new_omt_logo.svg" alt="Premium Deals" class="banner-image">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XXX YYY ZZZ OOO</p>
@@ -566,10 +566,10 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
       <!-- ABOUT SECTION -->
       <section class="section about" id="about" aria-label="about">
         <div class="container">
-            <img src="images_v5\employee.jpg" width="400" height="720" loading="lazy" alt=""
+            <img src="assets\images_v5\employee.jpg" width="400" height="720" loading="lazy" alt=""
               class="img-cover-1">
 
-            <img src="images_v5\about-shape-2.png" width="500" height="500" loading="lazy" alt=""
+            <img src="assets\images_v5\about-shape-2.png" width="500" height="500" loading="lazy" alt=""
               class="abs-img abs-img-2">
 
           <div class="about-content">
@@ -635,7 +635,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
               </li>
             </ul>
 
-            <a href="#" class="btn">Learn More</a>
+            <a href="pages\searchplanner.html" class="btn">Learn More</a>
           </div>
         </div>
       </section>
@@ -651,7 +651,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                 Providing frequent stops to ensure accessibility for all passengers.
               </p>
             </div>
-            <a href="#" class="btn">Read More</a>
+            <a href="pages\searchplanner.html" class="btn">Read More</a>
           </div>
           <h1>Bus Route Journey</h1>
           <select id="route-select" onchange="startJourney()">
@@ -680,7 +680,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
       
       <!-- UPDATES SECTION -->
       <section class="section updates-map" class="updates-map" aria-label="updates-map"
-        style="background-image: url('inside2.jpg'); background-repeat: no-repeat;; background-size: cover; background-position: center;">
+        style="background-image: url('assets\images_v5\inside2.jpg'); background-repeat: no-repeat;; background-size: cover; background-position: center;">
         <div class="container">
           <div class="title-wrapper">
             <h1 class="section-subtitle" style="font-size: 100px;">Bus Line Updates</h1>
@@ -712,7 +712,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <li class="project-item">
               <div class="project-card">
                 <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
-                  <img src="images_v5\report.jpg" width="397" height="352" loading="lazy"
+                  <img src="assets\images_v5\report.jpg" width="397" height="352" loading="lazy"
                     alt="Warehouse inventory" class="img-cover">
                 </figure>
 
@@ -723,9 +723,9 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                 <div class="card-content">
                   <p class="card-tag"> Passenger Reporting System</p>
                   <h3 class="h3">
-                    <a href="reportV3.html" class="card-title">Report drivers, incidents, or misconduct</a>
+                    <a href="pages\reportV3.html" class="card-title">Report drivers, incidents, or misconduct</a>
                   </h3>
-                  <a href="reportV3.html" class="card-link">click here</a>
+                  <a href="pages\reportV3.html" class="card-link">click here</a>
                 </div>
               </div>
             </li>
@@ -733,7 +733,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <li class="project-item">
               <div class="project-card">
                 <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
-                  <img src="images_v5/pay.jpg" width="397" height="352" loading="lazy"
+                  <img src="assets\images_v5\pay.jpg" width="397" height="352" loading="lazy"
                     alt="Warehouse inventory" class="img-cover">
                 </figure>
 
@@ -744,9 +744,9 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                 <div class="card-content">
                   <p class="card-tag">Payment & Bus Card</p>
                   <h3 class="h3">
-                    <a href="paymentV3.html" class="card-title">Apply for a bus card</a>
+                    <a href="pages\paymentV3.html" class="card-title">Apply for a bus card</a>
                   </h3>
-                  <a href="paymentV3.html" class="card-link">click here</a>
+                  <a href="pages\paymentV3.html" class="card-link">click here</a>
                 </div>
               </div>
             </li>
@@ -754,7 +754,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <li class="project-item">
               <div class="project-card">
                 <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
-                  <img src="images_v5/opinion.jpg" width="397" height="352" loading="lazy"
+                  <img src="assets\images_v5\opinion.jpg" width="397" height="352" loading="lazy"
                     alt="Warehouse inventory" class="img-cover">
                 </figure>
 
@@ -765,9 +765,9 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                 <div class="card-content">
                   <p class="card-tag">Reviews & Ratings</p>
                   <h3 class="h3">
-                    <a href="reviewV3.html" class="card-title">Share your experience with us</a>
+                    <a href="pages\reviewV3.html" class="card-title">Share your experience with us</a>
                   </h3>
-                  <a href="reviewV3.html" class="card-link">click here</a>
+                  <a href="pages\reviewV3.html" class="card-link">click here</a>
                 </div>
               </div>
             </li>
@@ -775,7 +775,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <li class="project-item">
               <div class="project-card">
                 <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
-                  <img src="images_v5/bus2.jpg" width="397" height="352" loading="lazy"
+                  <img src="assets\images_v5\bus2.jpg" width="397" height="352" loading="lazy"
                     alt="Warehouse inventory" class="img-cover">
                 </figure>
 
@@ -786,9 +786,9 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                 <div class="card-content">
                   <p class="card-tag"> Lost Items</p>
                   <h3 class="h3">
-                    <a href="lostV3.html" class="card-title">Report lost items on our buses.</a>
+                    <a href="pages\lostV3.html" class="card-title">Report lost items on our buses.</a>
                   </h3>
-                  <a href="lostV3.html" class="card-link">click here</a>
+                  <a href="pages\lostV3.html" class="card-link">click here</a>
                 </div>
               </div>
             </li>
@@ -796,7 +796,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <li class="project-item">
               <div class="project-card">
                 <figure class="card-banner img-holder" style="--width: 397; --height: 352;">
-                  <img src="images_v5\employee2.jpg" width="397" height="352" loading="lazy"
+                  <img src="assets\images_v5\employee2.jpg" width="397" height="352" loading="lazy"
                     alt="Warehouse inventory" class="img-cover">
                 </figure>
 
@@ -807,9 +807,9 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                 <div class="card-content">
                   <p class="card-tag">Contact Us</p>
                   <h3 class="h3">
-                    <a href="contactV3.html" class="card-title">Get in touch with us for any inquiries or support.</a>
+                    <a href="pages\contactV3.html" class="card-title">Get in touch with us for any inquiries or support.</a>
                   </h3>
-                  <a href="contactV3.html" class="card-link">click here</a>
+                  <a href="pages\contactV3.html" class="card-link">click here</a>
                 </div>
               </div>
             </li>
@@ -848,8 +848,8 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
     <div class="container">
       <div class="footer-top section">
         <div class="footer-brand">
-          <a href="indexV3.html">
-            <img src="images_v5/ACTC LOGO -01.png" class="logo" alt="ACTC Public Transport">
+          <a href="indexV51.html">
+            <img src="assets\images_v5\ACTC LOGO -01.png" class="logo" alt="ACTC Public Transport">
           </a>
 
           <p class="footer-text">
@@ -882,7 +882,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <p class="footer-list-title">Quick Links</p>
           </li>
           <li>
-            <a href="#" class="footer-link">Lines</a>
+            <a href="pages\searchplanner.html" class="footer-link">Lines</a>
           </li>
           <li>
             <a href="#" class="footer-link">About</a>
@@ -894,7 +894,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <a href="#" class="footer-link">FAQ</a>
           </li>
           <li>
-            <a href="contactV3.html" class="footer-link">Contact Us</a>
+            <a href="pages\contactV3.html" class="footer-link">Contact Us</a>
           </li>
         </ul>
 
@@ -928,7 +928,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
   </a>
 
   <!-- custom js link -->
-  <script src="scriptV3.js" defer></script>
+  <script src="assets/js/scriptV3.js" defer></script>
 <script>
 // Function to set cookie
 function setCookie(name, value, days) {

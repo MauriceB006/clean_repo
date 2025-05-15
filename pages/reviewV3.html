@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews & Ratings</title>
+  <style>
+    :root {
+      --green-blue-crayola: hsl(244, 59%, 30%);
+      --prussian-blue: hsl(202, 72%, 15%);
+      --indigo-dye: hsl(202, 64%, 26%);
+      --dark-orange: hsl(244, 89%, 17%);
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--green-blue-crayola), var(--prussian-blue), var(--indigo-dye), var(--dark-orange));
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+      margin-top: 50px;
+      background: linear-gradient(135deg, var(--dark-orange), var(--indigo-dye), var(--prussian-blue), var(--green-blue-crayola));
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+      animation: slideIn 0.7s ease-out;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    
+    input, textarea, select {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 5px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    input:hover, textarea:hover, select:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    input:focus, textarea:focus, select:focus {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 8px var(--dark-orange);
+      outline: none;
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--green-blue-crayola);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .btn:hover {
+      background-color: var(--dark-orange);
+      transform: scale(1.05);
+    }
+    
+    .btn:active {
+      transform: scale(1);
+    }
+    
+    .rating {
+      display: flex;
+      justify-content: start;
+      gap: 5px;
+    }
+    
+    .rating .star {
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      color: var(--dark-orange);
+    }
+    
+    .rating .star:hover,
+    .rating .star.selected {
+      transform: scale(1.2);
+      color:#fff var(--dark-orange);
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+    select {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.1); /* Initial default background */
+  color: #ffffff; /* White text */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Styling for Options */
+option {
+  background: rgba(0, 0, 0, 0.85); /* Default option background */
+  color: #ffffff; /* Default text color */
+  padding: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reviews & Ratings</h1>
+    <form action="submit_review.php" method="post">
+      <div class="form-group">
+        <label for="line">Select Line:</label>
+        <select id="line" name="line">
+          <option value="Line B1">Line B1</option>
+          <option value="Line B2">Line B2</option>
+          <option value="Line B3">Line B3</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Date of Travel:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Time of Travel:</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+      <div class="form-group">
+        <label>Rating:</label>
+        <div class="rating" id="rating">
+          <span class="star" data-value="1">★</span>
+          <span class="star" data-value="2">★</span>
+          <span class="star" data-value="3">★</span>
+          <span class="star" data-value="4">★</span>
+          <span class="star" data-value="5">★</span>
+        </div>
+        <input type="hidden" id="selected-rating" name="rating" value="0">
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="comment" rows="5" placeholder="Write your review here..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Submit Review</button>
+    </form>
+  </div>
+
+  <script>
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('selected-rating');
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const ratingValue = star.dataset.value;
+        ratingInput.value = ratingValue;
+
+        // Remove 'selected' class from all stars and reapply
+        stars.forEach(s => s.classList.remove('selected'));
+        for (let i = 0; i < ratingValue; i++) {
+          stars[i].classList.add('selected');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
