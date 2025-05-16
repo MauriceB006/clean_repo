@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
 
         // Success - redirect to indexV3.1.php
-        header("Location: indexV3,1.php");
+        header("Location: ../indexV51.php");
         exit();
 
     } catch(PDOException $e) {
@@ -72,6 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // If someone tries to access this page directly, redirect them
-    header("Location: indexV3,1.php");
+    header("Location: ../indexV51.php");
     exit();
 }
