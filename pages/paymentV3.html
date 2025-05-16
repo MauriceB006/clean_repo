@@ -19,12 +19,16 @@
       padding: 40px;
       background: linear-gradient(135deg, var(--green-blue-crayola), var(--prussian-blue), var(--indigo-dye), var(--dark-orange));
       color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
     }
 
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    
     .container {
       max-width: 800px;
       width: 100%;
@@ -102,6 +106,43 @@
       transform: scale(1);
     }
 
+    .header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 8px 0;
+        box-shadow: var(--shadow);
+        position: relative;
+    }
+        
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+        
+    .back-button {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 500;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+      }
+        
+      .back-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -124,9 +165,21 @@
   </style>
 </head>
 <body>
+  <header class="header">
+    <div class="header-content">
+        <a href="indexV51.php" class="back-button">
+            <i class="fas fa-chevron-left"></i> Back
+        </a>
+        <h1>
+            <img src="../assets/images_v5/ACTC LOGO -02 SMALL.png" class="logo" alt="ACTC Public Transport" style="height: 50px;">
+        </h1>
+        <div style="width: 80px;"></div> <!-- Spacer for balance -->
+    </div>
+</header>
+<div class="main-wrapper">
   <div class="container">
     <h1>Apply for a Bus Card</h1>
-    <form action="process_application.php" method="post">
+    <form action="../submit/process_application.php" method="post">
       <div class="form-group">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -146,5 +199,6 @@
       <button type="submit" class="btn">Apply for Bus Card</button>
     </form>
   </div>
+</div>
 </body>
 </html>
