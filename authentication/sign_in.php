@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACTC - Login / Signup </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
 </head>
 <body>
     <div class="container" id="container">
@@ -81,6 +81,6 @@
             </div>
         </div>
     </div>
-    <script src="login.js"></script>
+    <script src="../assets/js/login.js"></script>
 </body>
 </html>
