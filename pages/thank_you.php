@@ -44,7 +44,7 @@
   <div class="message">
     <h1>Thank You for Your Report</h1>
     <p>Your incident report has been successfully submitted.</p>
-    <a href="indexV3,1.php">Return to Home</a>
+    <a href="../indexV51.php">Return to Home</a>
   </div>
 </body>
 </html>
