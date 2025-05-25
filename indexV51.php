@@ -500,23 +500,9 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
         
         <div class="horizontal-scroll-wrapper">
             <div class="banners-container">
-                <div class="banners-container">
-                  <!-- Discount Banner -->
-                  <div class="promo-banner">
-                      <a href="#" class="banner-link" data-promotionid="2853" data-index="1" onclick="viewPromotionEvent(this);">
-                          <img src="https://www.usj.edu.lb/images/logo.png" alt="USJ Logo" class="banner-image">
-                          <div class="banner-content">
-                              <h3 class="banner-title">Gift Cards</h3>
-                              <p class="banner-subtitle">The Secret Behind Big Smiles!</p>
-                              <span class="banner-cta">CHECK ALL DISCOUNTS NOW</span>
-                              <p class="banner-footer">For partnerships, reach out to us at partner@actc.com</p>
-                          </div>
-                      </a>
-                  </div>
-                  
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="assets\images_v5\logo-cartlow.svg"  alt="cartlow" class="banner-image">
+                        <img src="assets\images_v5\AUB-LOGO.png"  alt="cartlow" class="banner-image">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XX YYY ZZZ OOO</p>
@@ -538,7 +524,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
 
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="assets\images_v5\wish_logo.svg" alt="Premium Deals" class="banner-image">
+                        <img src="assets\images_v5\WHISHMONEY-test-ad.png" alt="Premium Deals" class="banner-image">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XXX YYY ZZZ OOO</p>
@@ -549,7 +535,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
 
                   <div class="promo-banner">
                     <a href="https://www.cartlow.com/uae/en/home/iphones-page" class="banner-link" data-promotionid="2855" data-index="3" onclick="viewPromotionEvent(this);">
-                        <img src="assets\images_v5\new_omt_logo.svg" alt="Premium Deals" class="banner-image">
+                        <img src="assets\images_v5\OMT-SECOND-PREVIEW.png" alt="Premium Deals" class="banner-image">
                         <div class="banner-content">
                             <h3 class="banner-title">XXXX YYYYY</h3>
                             <p class="banner-subtitle"> XXX YYY ZZZ OOO</p>
@@ -559,8 +545,11 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
                   </div>
                 </div>
             </div>
+
+            <button class="scroll-btn right" onclick="scrollBanners(1)">&#9654;</button>
+
         </div>
-        <button class="scroll-btn right" onclick="scrollBanners(1)">&#9654;</button>
+        
       </div>
 
       <!-- ABOUT SECTION -->
@@ -972,7 +961,6 @@ window.onload = function() {
   <!-- Cookie Consent Popup -->
 
 <script>
-// Show cookie popup after 3 seconds if consent not given
 document.addEventListener('DOMContentLoaded', function() {
     <?php if ($showCookieConsent): ?>
         setTimeout(function() {
@@ -980,26 +968,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     <?php endif; ?>
     
-    // Track route usage - modify your existing startJourney function
     function startJourney() {
         const routeSelect = document.getElementById('route-select');
         const selectedRoute = routeSelect.value;
+
+        <?php
+        $analyticsEnabled = ($_COOKIE['cookie_analytics'] ?? 'false') === 'true';
+        ?>
+        
+        const analyticsEnabled = <?php echo json_encode($analyticsEnabled); ?>;
         
         if (selectedRoute) {
-            // Track route usage if analytics cookies are enabled
-            <?php if (($_COOKIE['cookie_analytics'] ?? 'false') === 'true'): ?>
-                // Refresh page with route tracking parameter
+            if (analyticsEnabled) {
                 window.location.href = '<?php echo $_SERVER['PHP_SELF']; ?>?route_used=' + encodeURIComponent(selectedRoute);
-            <?php else: ?>
-                // Continue with normal function
-                // ... your existing startJourney code ...
-            <?php endif; ?>
+            } else {
+                // Continue with normal function (no redirect)
+                console.log("Journey started without analytics.");
+            }
         }
     }
-    
-    // Make startJourney available globally
+
     window.startJourney = startJourney;
 });
+
 </script>
 </body>
 </html>
