@@ -876,9 +876,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
           <li>
             <a href="#" class="footer-link">About</a>
           </li>
-          <li>
-            <a href="#" class="footer-link">Blog</a>
-          </li>
+
           <li>
             <a href="#" class="footer-link">FAQ</a>
           </li>
@@ -891,9 +889,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
           <li>
             <p class="footer-list-title">Community</p>
           </li>
-          <li>
-            <a href="#" class="footer-link">Testimonials</a>
-          </li>
+          
           <li>
             <a href="#" class="footer-link">Privacy Policy</a>
           </li>

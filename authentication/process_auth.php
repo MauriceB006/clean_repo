@@ -39,7 +39,7 @@ try {
                 $_SESSION['user_name'] = $user['full_name'];
                 
                 // Remember me functionality
-                if (isset($_POST['remember'])) {
+                if (isset($_POST['remember'])) 
                     $token = bin2hex(random_bytes(32));
                     setcookie('remember_token', $token, time() + 86400 * 30, "/");
                     
@@ -47,7 +47,7 @@ try {
                     $updateStmt->bind_param("si", $token, $user['user_id']);
                     $updateStmt->execute();
                     $updateStmt->close();
-                }
+                
                 
                 header("Location:/indexV51.php");
                 exit();
