@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ | ACTC Public Transport</title>
+    <style>
+
+:root {
+    --primary-color: #10069F;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-gray: #ecf0f1;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.faq-container {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.faq-question {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    background-color: #9ba3a8;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 24px;
+}
+
+.faq-question.active::after {
+    content: '-';
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+    padding: 0 20px;
+}
+
+.faq-answer p {
+    padding: 15px 0;
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 0;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.back-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <a href="../indexV51.php" class="back-button">
+            &#8592; Back
+        </a>
+        <h1>
+            <img src="../assets/images_v5/ACTC LOGO -02 SMALL.png" class="logo" alt="ACTC Public Transport" style="height: 50px;" />
+        </h1>
+        <div style="width: 80px;"></div> <!-- Spacer for balance -->
+    </div>
+</header>
+
+<h1>Frequently Asked Questions</h1>
+
+<div class="faq-container">
+    <div class="faq-question">How can I track the real-time location of buses?</div>
+    <div class="faq-answer">
+        <p>You can track the real-time location of buses using our official ACTC mobile app or website, which provides live GPS updates for all routes.</p>
+    </div>
+</div>
+
+<div class="faq-container">
+    <div class="faq-question">What should I do if I lose my bus card or ticket?</div>
+    <div class="faq-answer">
+        <p>If you lose your bus card or ticket, please visit any ACTC customer service center or contact our support line to report and replace your card.</p>
+    </div>
+</div>
+
+<div class="faq-container">
+    <div class="faq-question">Are there any discounts for students or seniors?</div>
+    <div class="faq-answer">
+        <p>Yes, ACTC offers discounted fares for students and senior citizens upon presenting a valid ID. Please check the fare policy page for more details.</p>
+    </div>
+</div>
+
+<div class="faq-container">
+    <div class="faq-question">Can I bring luggage or pets on the bus?</div>
+    <div class="faq-answer">
+        <p>Passengers are allowed to bring small luggage and pets if they are in appropriate carriers. Large items require prior approval from ACTC management.</p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(q => {
+            q.addEventListener('click', function() {
+                this.classList.toggle('active');
+
+                const answer = this.nextElementSibling;
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

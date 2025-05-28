@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | ACTC Public Transport</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #10069F;
+      --accent-color: #27ae60;
+      --bg-light: #f9f9f9;
+      --text-dark: #2c3e50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: white;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 30px;
+    }
+
+    /* Top Header Styles */
+    .top-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .back-button {
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    section p {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      max-width: 900px;
+    }
+
+    section img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .back-button {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <div class="top-header">
+    <div class="header-content">
+      <a href="../indexV51.php" class="back-button">← Back</a>
+      <img src="../assets/images_v5/ACTC LOGO -02 SMALL.png" class="logo" alt="ACTC Logo">
+      <div style="width: 75px;"></div> <!-- Spacer -->
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <header>
+      <h1>About Us</h1>
+      <p>Driving Lebanon Forward with Innovation and Sustainability</p>
+    </header>
+
+    <section>
+      <h2>ACTC Public Transport</h2>
+      <img src="https://www.actc-international.com/images/about.jpg" alt="ACTC Overview">
+      <p>ACTC Public Transport is Lebanon’s pioneering public-private partnership in urban mobility, launched to modernize and revitalize the nation’s transportation infrastructure. As a division of the Ahdab Commuting & Trading Company (ACTC), a trusted name in logistics and transport for over 55 years, we are committed to delivering safe, efficient, and eco-friendly transit solutions across the country.</p>
+    </section>
+
+    <section>
+      <h2>Our Mission</h2>
+      <img src="https://www.actc-international.com/images/mission.jpg" alt="Mission">
+      <p>To provide reliable, affordable, and sustainable public transportation that connects communities, reduces congestion, and enhances the quality of urban life in Lebanon.</p>
+    </section>
+
+    <section>
+      <h2>What We Offer</h2>
+      <img src="https://www.actc-international.com/images/bus-fleet.jpg" alt="Smart Bus Fleet">
+      <p><strong>Smart Bus Fleet:</strong> Our modern buses are equipped with advanced safety systems, including AI-powered driver monitoring, GPS tracking, and real-time route updates.</p>
+      <p><strong>Digital Integration:</strong> We are developing a user-friendly mobile app in partnership with Katsh, enabling features such as live bus tracking, digital ticketing, and route planning.</p>
+      <p><strong>Accessible Routes:</strong> Our initial lines, including B1, B2, B3, and ML3, serve key areas in Beirut and its suburbs, with plans to expand further.</p>
+      <p><strong>Sustainability Focus:</strong> We are collaborating with local partners to construct eco-friendly bus stops using recycled materials, aiming to minimize our environmental footprint.</p>
+    </section>
+
+    <section>
+      <h2>Our Vision</h2>
+      <img src="https://www.actc-international.com/images/vision.jpg" alt="Vision">
+      <p>To establish a comprehensive and modern public transportation network that meets the evolving needs of Lebanon’s residents and visitors, fostering economic growth and social inclusion.</p>
+    </section>
+  </div>
+
+
+</body>
+</html>

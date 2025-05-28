@@ -215,7 +215,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             </a>
           </li>
           <li class="navbar-item">
-            <a href="#service" class="navbar-link" data-nav-link>
+            <a href="/pages/about.html" class="navbar-link" data-nav-link>
               <span>About</span>
             </a>
           </li>
@@ -874,14 +874,14 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             <a href="pages\searchplanner.html" class="footer-link">Lines</a>
           </li>
           <li>
-            <a href="#" class="footer-link">About</a>
+            <a href="pages\about.html" class="footer-link">About</a>
           </li>
 
           <li>
-            <a href="#" class="footer-link">FAQ</a>
+            <a href="/pages/faq.html" class="footer-link">FAQ</a>
           </li>
           <li>
-            <a href="pages\contactV3.html" class="footer-link">Contact Us</a>
+            <a href="/pages/contactV3.html" class="footer-link">Contact Us</a>
           </li>
         </ul>
 
@@ -891,10 +891,10 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
           </li>
           
           <li>
-            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="/pages/privacy.html" class="footer-link">Privacy Policy</a>
           </li>
           <li>
-            <a href="#" class="footer-link">Terms & Condition</a>
+            <a href="/pages/terms.html" class="footer-link">Terms & Condition</a>
           </li>
         </ul>
       </div>
