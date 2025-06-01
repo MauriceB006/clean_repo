@@ -225,7 +225,7 @@ if (isset($_GET['route_used']) && ($_COOKIE['cookie_analytics'] ?? 'false') === 
             </a>
           </li>
           <li class="navbar-item">
-            <a href="pages\career.html" class="navbar-link" data-nav-link>
+            <a href="pages\career.php" class="navbar-link" data-nav-link>
               <span>Career</span>
             </a>
           </li>
