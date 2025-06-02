@@ -21,7 +21,7 @@
             background: #fff;
             padding: 20px 25px;
             border-radius: 10px;
-            max-width: 400px;
+            max-width: 100%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             text-align: center;
         }
