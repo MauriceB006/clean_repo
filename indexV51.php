@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 </html>
 <?php 
-require_once 'authentication\check_auth.php';
+require_once 'check_auth.php';
 
 // Handle cookie consent
 $showCookieConsent = true;

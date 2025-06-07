@@ -49,7 +49,7 @@ try {
                     $updateStmt->close();
                 
                 
-                header("Location:clean_repo/indexV51.php");
+                header("Location: indexV51.php");
                 exit();
             }
         }
@@ -83,14 +83,14 @@ try {
                 // Success - log in user
                 $_SESSION['user_id'] = $stmt->insert_id;
                 $_SESSION['user_name'] = $_POST['full_name'];
-                header("Location: clean_repo/indexV51.php");
+                header("Location:  indexV51.php");
                 exit();
             } else {
                 throw new Exception("Execute failed: " . $stmt->error);
             }
         } else {
             $_SESSION['form_data'] = $_POST;
-            header("Location: clean_repo/indexV51.php");
+            header("Location:  indexV51.php");
             exit();
         }
     }
